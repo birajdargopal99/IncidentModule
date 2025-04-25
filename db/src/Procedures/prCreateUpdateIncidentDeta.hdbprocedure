@@ -1,0 +1,29 @@
+PROCEDURE prCreateUpdateIncidentDeta(
+
+  INCID INTEGER,       -- Primary key
+  INCDT DATE,          -- Incident Date
+  INCTM TIME,          -- Incident Time 
+  INCLC NVARCHAR(500)  -- Incident Locations
+
+ )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic
+   *************************************/
+
+IF :INCID = 0 THEN 
+
+    INSERT INTO INC_T_INCDT(INCDT,INCTM,INCLC)
+                     VALUES(INCDT,INCTM,INCLC);
+
+ELSE
+    
+    UPDATE INC_T_INCDT
+    SET INCDT=:INCDT,INCTM=:INCTM,INCLC=:INCLC
+    WHERE INCID=:INCID AND ISDEL = '0';
+
+END IF;
+END
