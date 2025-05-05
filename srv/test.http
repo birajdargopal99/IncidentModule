@@ -1,0 +1,6 @@
+POST http://localhost:4004/odata/v2/incident/insertIncident
+Content-Type: application/json
+
+{
+    "XkXwXp4nCf5azs0U":"{\"IncidentDetails\":{\"INCID\":10,\"INCDT\":\"2025-09-09\",\"INCTM\":\"09:09:09\",\"INCLC\":\"Incident Location\"}}"
+}
